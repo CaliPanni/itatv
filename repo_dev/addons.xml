@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<addons>
+  <addon id="plugin.video.wltvhelper" name="World Live TV Helper" version="1.2.0" provider-name="WLTV Group">
+    <requires>
+      <import addon="xbmc.python" version="3.0.0" />
+      <import addon="script.module.requests" />
+      <import addon="script.module.routing" version="0.2.0" />
+      <import addon="script.module.xmltodict" />
+      <import addon="script.module.inputstreamhelper" version="0.5.2" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+      <provides>video</provides>
+    </extension>
+    <extension point="kodi.context.item">
+      <menu id="kodi.core.main">
+        <item library="switch.py">
+          <label>30129</label>
+          <visible>!String.IsEmpty(ListItem.ChannelName)</visible>
+        </item>
+        <item library="worldtvonpvr.py">
+          <label>30125</label>
+          <visible>String.Contains(ListItem.FolderPath, "switchlist")</visible>
+        </item>
+      </menu>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+      <platform>all</platform>
+      <summary lang="en">World Live TV Helper - for free IPTV channel</summary>
+      <assets>
+        <icon>resources/images/wltv-logo.png</icon>
+        <fanart>resources/images/wltv-background.png</fanart>
+        <screenshot>resources/images/screen1.png</screenshot>
+        <screenshot>resources/images/screen2.png</screenshot>
+        <screenshot>resources/images/screen3.png</screenshot>
+      </assets>
+      <news>
+			v 1.2.0
+			- Code refactoring and cleanup
+			- Add User List Maker and management
+			- Add Playlist VOD Manager
+			- Add Search in each UserList
+			- Add Global Search throw all UserList
+			- Add sent to PVR only Live of User PlayList
+			- Various fixes
+		</news>
+      <description lang="it"></description>
+      <disclaimer></disclaimer>
+      <platform>all</platform>
+      <license>GNU GPL v3</license>
+      <forum>https://t.me/worldlivetv</forum>
+      <website>https://WorldLiveTV.github.io/</website>
+      <source></source>
+    </extension>
+  </addon>
+  <addon id="repository.wltv.dev" name="WorldLiveTV DEV Repository Addon Repository" version="1.0.0" provider-name="WLTV-Group">
+    <extension point="xbmc.addon.repository" name="WorldLiveTV DEV Repository Addon Repository">
+      <dir>
+        <info compressed="false">https://WorldLiveTV.github.io/repo_dev/addons.xml</info>
+        <checksum>https://WorldLiveTV.github.io/repo_dev/addons.xml.md5</checksum>
+        <datadir zip="true">https://WorldLiveTV.github.io/repo_dev/</datadir>
+        <hashes>true</hashes>
+      </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+      <summary>WorldLiveTV DEV Repository Repository</summary>
+      <description>The official repo of WorldLiveTV DEV Repository.</description>
+      <disclaimer>WorldLiveTV DEV Repository did not make all the add-ons in this repository and is not responsible for their content, nor is it responsible for the use that the user makes of the addon itself.</disclaimer>
+      <platform>all</platform>
+      <forum>https://t.me/worldlivetv</forum>
+      <social>https://t.me/worldlivetv</social>
+      <website>https://WorldLiveTV.github.io</website>
+      <assets>
+        <icon>icon.png</icon>
+      </assets>
+    </extension>
+  </addon>
+</addons>
